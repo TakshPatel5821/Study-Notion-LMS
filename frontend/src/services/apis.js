@@ -1,4 +1,5 @@
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+import axios from "axios";
 
 // AUTH ENDPOINTS
 export const endpoints = {
@@ -69,3 +70,21 @@ export const settingsEndpoints = {
   CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
   DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
 }
+
+import axios from "axios";
+
+const axiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_BACKEND_URL,
+  withCredentials: true, // keeps session/cookies if your backend uses them
+});
+
+// Optional: Log requests for debugging
+axiosInstance.interceptors.request.use((config) => {
+  console.log(`📡 ${config.method.toUpperCase()} → ${config.url}`);
+  return config;
+});
+
+
+
+
+export default axiosInstance;
