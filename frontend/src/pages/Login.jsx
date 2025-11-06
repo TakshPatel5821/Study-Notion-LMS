@@ -1,6 +1,7 @@
 import loginImg from "../assets/Images/login.png"
 import Template from "../components/core/Auth/Template"
-import axiosInstance from "../services/api";
+import axiosInstance from "../services/apis";
+
 
 function Login() {
   return (

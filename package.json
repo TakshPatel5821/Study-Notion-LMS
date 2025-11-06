@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "devDependencies": {
-    "concurrently": "^9.0.0"
+    "concurrently": "^9.2.1"
   },
   "author": "Taksh",
   "license": "ISC"
