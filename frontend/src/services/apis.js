@@ -2,7 +2,8 @@
 import axios from "axios";
 
 // ✅ Load backend base URL from .env
-const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+// Example: http://localhost:5000/api/v1
+const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/api/v1";
 
 // -------------------------------------------
 // 🔐 AUTH ENDPOINTS
@@ -98,10 +99,10 @@ export const settingsEndpoints = {
 // -------------------------------------------
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  withCredentials: true, // keeps session/cookies if your backend uses them
+  withCredentials: true, // keeps cookies if backend uses them
 });
 
-// ✅ Optional: Log every request for debugging
+// ✅ Log every request for debugging
 axiosInstance.interceptors.request.use((config) => {
   console.log(`📡 ${config.method?.toUpperCase()} → ${config.baseURL}${config.url}`);
   return config;
